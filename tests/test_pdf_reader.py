@@ -2,6 +2,8 @@ from pathlib import Path
 import pymupdf
 import pytest
 from finguard.ingestion.pdf_reader import extract_pages
+from finguard.ingestion.chunker import chunk_text
+from finguard.ingestion.chunker import chunk_pages
 
 def test_extract_pages_returns_text_and_page_numbers(tmp_path: Path) -> None:
     pdf_path = tmp_path / "sample.pdf"
@@ -38,3 +40,57 @@ def test_extract_pages_rejects_non_pdf_file(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError):
         extract_pages(text_file)
+
+
+def test_chunk_text_creates_overlapping_chunks() -> None:
+    text = "ABCDEFGHIJKL"
+
+    chunks = chunk_text(
+        text=text,
+        chunk_size=5,
+        overlap=2,
+    )
+
+    assert chunks == [
+        "ABCDE",
+        "DEFGH",
+        "GHIJK",
+        "JKL",
+    ]
+
+def test_chunk_pages_preserves_page_metadata() -> None:
+    pages = [
+        {
+            "page_number": 7,
+            "text": "ABCDEFGHIJKL",
+        }
+    ]
+
+    chunks = chunk_pages(
+        pages=pages,
+        chunk_size=5,
+        overlap=2,
+    )
+
+    assert chunks == [
+        {
+            "page_number": 7,
+            "chunk_index": 0,
+            "text": "ABCDE",
+        },
+        {
+            "page_number": 7,
+            "chunk_index": 1,
+            "text": "DEFGH",
+        },
+        {
+            "page_number": 7,
+            "chunk_index": 2,
+            "text": "GHIJK",
+        },
+        {
+            "page_number": 7,
+            "chunk_index": 3,
+            "text": "JKL",
+        },
+    ]
