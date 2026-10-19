@@ -9,28 +9,19 @@ class RAGResult:
     answer: str
     sources: list[dict]
 
-def answer_question(
-    question: str,
-    top_k: int = 3,
-) -> RAGResult:
+def answer_question(question: str,top_k: int = 3,) -> RAGResult:
     """Answer a question using retrieved FinGuard document evidence."""
 
     session = SessionLocal()
 
     try:
-        retrieved = retrieve_chunks(
-            session=session,
-            query=question,
-            top_k=top_k,
-        )
+        retrieved = retrieve_chunks(session=session, query=question, top_k=top_k, )
 
         context_parts = []
         sources = []
 
         for chunk, distance in retrieved:
-            context_parts.append(
-                f"[Page {chunk.page_number}]\n{chunk.text}"
-            )
+            context_parts.append( f"[Page {chunk.page_number}]\n{chunk.text}"  )
 
             sources.append(
                 {
@@ -43,16 +34,9 @@ def answer_question(
             )
 
         context = "\n\n".join(context_parts)
+        answer = generate_answer(question=question, context=context, )
 
-        answer = generate_answer(
-            question=question,
-            context=context,
-        )
-
-        return RAGResult(
-            answer=answer,
-            sources=sources,
-        )
+        return RAGResult( answer=answer,  sources=sources,  )
 
     finally:
         session.close()

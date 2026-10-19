@@ -6,6 +6,7 @@ from finguard.db.models import Document, DocumentChunk
 def create_document(
     session: Session,
     filename: str,
+    content_hash: str,
     source_path: str | None = None,
 ) -> Document:
     """Create and persist a document record."""
@@ -13,6 +14,7 @@ def create_document(
     document = Document(
         filename=filename,
         source_path=source_path,
+        content_hash=content_hash,
     )
 
     session.add(document)

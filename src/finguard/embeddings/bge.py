@@ -40,14 +40,8 @@ def embed_query(text: str) -> list[float]:
 
     model = get_model()
 
-    query_text = (
-        "Represent this sentence for searching relevant passages: "
-        + text
-    )
+    query_text = ("Represent this sentence for searching relevant passages: "  + text )
 
-    embedding = model.encode(
-        query_text,
-        normalize_embeddings=True,
-    )
+    embedding = model.encode(query_text, normalize_embeddings=True, )
 
     return embedding.tolist()

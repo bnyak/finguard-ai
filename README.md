@@ -6,7 +6,7 @@ The project currently implements an end-to-end RAG pipeline for financial policy
 
 ## Project Status
 
-🚧 Under active development.
+Under active development.
 
 ### Current V1 Capabilities
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, Text, UniqueConstraint, func
+from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, Text, String, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from finguard.db.database import Base
@@ -17,6 +17,7 @@ class Document(Base):
         server_default=func.now(), nullable=False, )
     chunks: Mapped[list["DocumentChunk"]] = relationship(
         back_populates="document",cascade="all, delete-orphan", )
+    content_hash = mapped_column(String(64), nullable=True, unique=True,)
 
 
 class DocumentChunk(Base):

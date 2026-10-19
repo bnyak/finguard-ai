@@ -14,10 +14,7 @@ def _remove_thinking(text: str) -> str:
 
     return text.strip()
 
-def generate_answer(
-    question: str,
-    context: str,
-) -> str:
+def generate_answer( question: str,context: str,) -> str:
     """Generate an answer grounded in retrieved document context."""
 
     system_prompt = (
@@ -29,12 +26,8 @@ def generate_answer(
         "Keep the answer concise."
     )
 
-    user_prompt = f"""Question:
-{question}
-
-Context:
-{context}
-"""
+    user_prompt = f"""Question:{question}
+Context:{context} """
 
     payload = {
         "model": MODEL_NAME,
@@ -62,6 +55,4 @@ Context:
     with urlopen(request, timeout=300) as response:
         result = json.loads(response.read().decode("utf-8"))
 
-    return _remove_thinking(
-        result["message"]["content"]
-    )
+    return _remove_thinking(result["message"]["content"])

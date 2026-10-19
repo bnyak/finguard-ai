@@ -4,11 +4,7 @@ from sqlalchemy.orm import Session
 from finguard.db.models import DocumentChunk
 from finguard.embeddings.bge import embed_query
 
-def retrieve_chunks(
-    session: Session,
-    query: str,
-    top_k: int = 5,
-) -> list[tuple[DocumentChunk, float]]:
+def retrieve_chunks(session: Session, query: str, top_k: int = 5,) -> list[tuple[DocumentChunk, float]]:
     """Retrieve document chunks most relevant to a query."""
 
     query_embedding = embed_query(query)
