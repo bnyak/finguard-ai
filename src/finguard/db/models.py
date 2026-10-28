@@ -1,14 +1,25 @@
 from datetime import datetime
+from typing import ClassVar
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, Text, String, UniqueConstraint, func
+from sqlalchemy import (
+    BigInteger,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+    func,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from finguard.db.database import Base
 
+
 class Document(Base):
     __tablename__ = "documents"
-    __table_args__ = {"schema": "finguard"}
+    __table_args__ : ClassVar[dict[str, str]] = {"schema": "finguard"}
 
     id: Mapped[int] = mapped_column( BigInteger, primary_key=True, autoincrement=True, )
     filename: Mapped[str] = mapped_column(Text, nullable=False, )

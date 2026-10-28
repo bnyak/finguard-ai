@@ -1,11 +1,11 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from typing import Annotated
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
 from finguard.api.schemas import DocumentUploadResponse
 from finguard.ingestion.service import ingest_pdf
-
 
 router = APIRouter()
 
@@ -13,7 +13,7 @@ MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
 
 
 @router.post("/documents", response_model=DocumentUploadResponse)
-def upload_document(file: UploadFile = File(...)):
+def upload_document(file: Annotated[UploadFile, File()]):
 
     # 1. Validate filename
     filename = Path(file.filename or "").name
@@ -38,8 +38,11 @@ def upload_document(file: UploadFile = File(...)):
 
         try:
             document_id = ingest_pdf(temp_path)
-        except Exception:
-            raise HTTPException( status_code=500, detail="Document ingestion failed", )
+        except Exception as exc:
+            raise HTTPException(
+                status_code=500,
+                detail="Document ingestion failed",
+            ) from exc
 
     return DocumentUploadResponse(
         document_id=document_id,

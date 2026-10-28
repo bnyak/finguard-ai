@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
+from finguard.api.routes.agent_routes import router as agent_router
+from finguard.api.routes.documents import router as documents_router
 from finguard.api.schemas import AskRequest, AskResponse
 from finguard.rag.service import answer_question
-
-from finguard.api.routes.documents import router as documents_router
 
 app = FastAPI(
     title="FinGuard AI",
@@ -11,6 +11,7 @@ app = FastAPI(
     version="0.1.0",
 )
 app.include_router(documents_router)
+app.include_router(agent_router)
 
 @app.get("/health")
 def health():

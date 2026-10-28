@@ -1,5 +1,7 @@
 from pathlib import Path
+
 import pymupdf
+
 
 def extract_pages(pdf_path: Path) -> list[dict]:
     """Extract text and page metadata from a PDF document."""

@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 from finguard.db.models import DocumentChunk
 from finguard.embeddings.bge import embed_query
 
-def retrieve_chunks(session: Session, query: str, top_k: int = 5,) -> list[tuple[DocumentChunk, float]]:
+
+def retrieve_chunks(session: Session, query: str, top_k: int = 5,document_id: int | None = None,) -> list[tuple[DocumentChunk, float]]:
     """Retrieve document chunks most relevant to a query."""
 
     query_embedding = embed_query(query)
@@ -14,9 +15,14 @@ def retrieve_chunks(session: Session, query: str, top_k: int = 5,) -> list[tuple
     statement = (
         select(DocumentChunk, distance.label("distance"))
         .where(DocumentChunk.embedding.is_not(None))
-        .order_by(distance)
-        .limit(top_k)
     )
+
+    if document_id is not None:
+        statement = statement.where(
+            DocumentChunk.document_id == document_id
+        )
+
+    statement = statement.order_by(distance).limit(top_k)
 
     results = session.execute(statement).all()
 

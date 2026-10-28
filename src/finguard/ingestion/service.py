@@ -1,14 +1,14 @@
+import hashlib
 from pathlib import Path
 
-from src.finguard.db.database import SessionLocal
+from sqlalchemy import select
+
+from finguard.db.database import SessionLocal
+from finguard.db.models import Document
 from finguard.db.repositories import create_chunks, create_document
 from finguard.embeddings.bge import embed_documents
 from finguard.ingestion.chunker import chunk_pages
 from finguard.ingestion.pdf_reader import extract_pages
-from finguard.db.models import Document
-
-import hashlib
-from sqlalchemy import select
 
 
 def ingest_pdf(

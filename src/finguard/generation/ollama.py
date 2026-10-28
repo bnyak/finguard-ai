@@ -1,7 +1,5 @@
 import json
-import re
 from urllib.request import Request, urlopen
-
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MODEL_NAME = "qwen3:4b"

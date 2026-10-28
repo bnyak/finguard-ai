@@ -1,9 +1,11 @@
 from pathlib import Path
+
 import pymupdf
 import pytest
+
+from finguard.ingestion.chunker import chunk_pages, chunk_text
 from finguard.ingestion.pdf_reader import extract_pages
-from finguard.ingestion.chunker import chunk_text
-from finguard.ingestion.chunker import chunk_pages
+
 
 def test_extract_pages_returns_text_and_page_numbers(tmp_path: Path) -> None:
     pdf_path = tmp_path / "sample.pdf"

@@ -4,6 +4,7 @@ from finguard.db.database import SessionLocal
 from finguard.generation.ollama import generate_answer
 from finguard.retrieval.semantic import retrieve_chunks
 
+
 @dataclass
 class RAGResult:
     answer: str

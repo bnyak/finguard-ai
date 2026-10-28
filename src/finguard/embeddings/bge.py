@@ -1,10 +1,8 @@
 from sentence_transformers import SentenceTransformer
 
-
 MODEL_NAME = "BAAI/bge-small-en-v1.5"
 EMBEDDING_DIMENSION = 384
 
-global _model
 _model: SentenceTransformer | None = None
 
 

@@ -30,6 +30,7 @@ def test_ask_rejects_invalid_top_k():
     assert response.status_code == 422
 
 from unittest.mock import patch
+
 from finguard.rag.service import RAGResult
 
 
