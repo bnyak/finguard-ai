@@ -29,6 +29,12 @@ jobs:
           ruff check src tests
 
       - name: Run fast tests
+        env:
+          DB_USER: ci_test_user
+          DB_PASSWORD: ci_test_password
+          DB_HOST: localhost
+          DB_PORT: "5432"
+          DB_NAME: ci_test_db
         run: |
           python -m pytest \
             tests/test_agent_api.py \
