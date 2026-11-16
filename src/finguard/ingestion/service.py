@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from sqlalchemy import select, delete
+from sqlalchemy import delete, select
 
 from finguard.db.database import SessionLocal
 from finguard.db.models import Document, DocumentChunk
@@ -9,7 +9,6 @@ from finguard.db.repositories import create_chunks, create_document
 from finguard.embeddings.bge import embed_documents
 from finguard.ingestion.chunker import chunk_pages
 from finguard.ingestion.pdf_reader import extract_pages
-
 
 
 def ingest_pdf(

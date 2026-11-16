@@ -39,7 +39,6 @@ def test_agent_rejects_wrong_tool_for_document_question():
 
 from unittest.mock import patch
 
-from langchain_core.messages import AIMessage, HumanMessage
 from finguard.agent.graph import agent_graph
 
 

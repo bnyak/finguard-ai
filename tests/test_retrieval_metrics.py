@@ -1,7 +1,12 @@
 
 import pytest
 
-from finguard.evaluation.retrieval_metrics import (recall_at_k, reciprocal_rank, precision_at_k)
+from finguard.evaluation.retrieval_metrics import (
+    precision_at_k,
+    recall_at_k,
+    reciprocal_rank,
+)
+
 
 def test_recall_at_3():
     retrieved = [10, 20, 30, 40]

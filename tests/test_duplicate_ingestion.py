@@ -135,10 +135,9 @@ def test_update_rolls_back_when_chunk_creation_fails(tmp_path: Path):
         patch(
             "finguard.ingestion.service.create_chunks",
             side_effect=RuntimeError("Database insert failed"),
-        ),
+        ),pytest.raises(RuntimeError, match="Database insert failed")
     ):
-        with pytest.raises(RuntimeError, match="Database insert failed"):
-            ingest_pdf(pdf_path, document_id=42)
+        ingest_pdf(pdf_path, document_id=42)
 
     mock_session.execute.assert_called_once()
     mock_session.rollback.assert_called_once()
@@ -168,13 +167,12 @@ def test_update_rejects_content_owned_by_another_document(
         ),
         patch(
             "finguard.ingestion.service.extract_pages",
-        ) as mock_extract,
+        ) as mock_extract,pytest.raises(
+        ValueError,
+        match="This PDF already belongs to document 57",
+    )
     ):
-        with pytest.raises(
-            ValueError,
-            match="This PDF already belongs to document 57",
-        ):
-            ingest_pdf(pdf_path, document_id=42)
+        ingest_pdf(pdf_path, document_id=42)
 
     # The PDF must not be processed.
     mock_extract.assert_not_called()

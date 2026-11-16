@@ -4,6 +4,7 @@ from typing import Annotated, TypedDict
 from langchain_core.messages import (
     AnyMessage,
     SystemMessage,
+    ToolMessage,
 )
 from langgraph.graph import (
     END,
@@ -12,7 +13,6 @@ from langgraph.graph import (
     add_messages,
 )
 from langgraph.prebuilt import ToolNode
-from langchain_core.messages import ToolMessage
 
 from finguard.agent.ollama_adapter import call_qwen
 from finguard.agent.tools.document_search import search_documents
