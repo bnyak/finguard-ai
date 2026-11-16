@@ -1,0 +1,527 @@
+{
+  "retrieval_method": "dense",
+  "embedding_model": "bge-small-en-v1.5",
+  "top_k": 5,
+  "total_questions": 20,
+  "ground_truth_status": "provisional",
+  "mean_precision_at_5": 0.33999999999999997,
+  "mean_recall_at_5": 0.8291666666666666,
+  "mrr": 1.0,
+  "per_question": [
+    {
+      "question_id": "Q001",
+      "question": "How does my credit score affect the mortgage interest rate I receive?",
+      "document_id": 2,
+      "category": "semantic",
+      "relevant_chunk_ids": [
+        17,
+        18,
+        19
+      ],
+      "retrieved_chunk_ids": [
+        18,
+        17,
+        27,
+        19,
+        26
+      ],
+      "found_relevant_ids": [
+        18,
+        17,
+        19
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.6,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q002",
+      "question": "What is a balloon payment in a mortgage?",
+      "document_id": 2,
+      "category": "definition",
+      "relevant_chunk_ids": [
+        21,
+        22
+      ],
+      "retrieved_chunk_ids": [
+        22,
+        21,
+        70,
+        37,
+        32
+      ],
+      "found_relevant_ids": [
+        22,
+        21
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q003",
+      "question": "What is the difference between a fixed-rate mortgage and an adjustable-rate mortgage?",
+      "document_id": 2,
+      "category": "comparison",
+      "relevant_chunk_ids": [
+        20
+      ],
+      "retrieved_chunk_ids": [
+        20,
+        27,
+        21,
+        33,
+        26
+      ],
+      "found_relevant_ids": [
+        20
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.2,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q004",
+      "question": "What interest rate applies when I pay 0.375 points in the mortgage example?",
+      "document_id": 2,
+      "category": "numerical_table",
+      "relevant_chunk_ids": [
+        27,
+        28
+      ],
+      "retrieved_chunk_ids": [
+        27,
+        26,
+        70,
+        32,
+        72
+      ],
+      "found_relevant_ids": [
+        27
+      ],
+      "missing_relevant_ids": [
+        28
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q005",
+      "question": "What do APR and Total Interest Percentage (TIP) tell me when comparing loan offers?",
+      "document_id": 2,
+      "category": "financial_terminology",
+      "relevant_chunk_ids": [
+        31,
+        32
+      ],
+      "retrieved_chunk_ids": [
+        32,
+        77,
+        31,
+        26,
+        70
+      ],
+      "found_relevant_ids": [
+        32,
+        31
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q006",
+      "question": "What expenses should I include when estimating my total monthly home payment?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        12,
+        13
+      ],
+      "retrieved_chunk_ids": [
+        13,
+        14,
+        15,
+        30,
+        16
+      ],
+      "found_relevant_ids": [
+        13
+      ],
+      "missing_relevant_ids": [
+        12
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q007",
+      "question": "What percentage of monthly income does the toolkit suggest spending on housing?",
+      "document_id": 2,
+      "category": "numerical",
+      "relevant_chunk_ids": [
+        15
+      ],
+      "retrieved_chunk_ids": [
+        15,
+        4,
+        16,
+        3,
+        13
+      ],
+      "found_relevant_ids": [
+        15
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.2,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q008",
+      "question": "What is force-placed insurance, and why can it be expensive?",
+      "document_id": 2,
+      "category": "definition",
+      "relevant_chunk_ids": [
+        9,
+        10
+      ],
+      "retrieved_chunk_ids": [
+        10,
+        9,
+        48,
+        85,
+        49
+      ],
+      "found_relevant_ids": [
+        10,
+        9
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q009",
+      "question": "How does making a down payment below 20% affect mortgage insurance and costs?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        12,
+        23,
+        24,
+        25
+      ],
+      "retrieved_chunk_ids": [
+        24,
+        23,
+        76,
+        25,
+        9
+      ],
+      "found_relevant_ids": [
+        24,
+        23,
+        25
+      ],
+      "missing_relevant_ids": [
+        12
+      ],
+      "precision_at_5": 0.6,
+      "recall_at_5": 0.75,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q010",
+      "question": "How can making extra mortgage payments reduce borrowing costs, and what penalties might apply?",
+      "document_id": 2,
+      "category": "semantic",
+      "relevant_chunk_ids": [
+        23
+      ],
+      "retrieved_chunk_ids": [
+        23,
+        76,
+        14,
+        27,
+        41
+      ],
+      "found_relevant_ids": [
+        23
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.2,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q011",
+      "question": "Why should I compare Loan Estimates from at least three lenders?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        29,
+        30,
+        31
+      ],
+      "retrieved_chunk_ids": [
+        30,
+        49,
+        51,
+        52,
+        33
+      ],
+      "found_relevant_ids": [
+        30
+      ],
+      "missing_relevant_ids": [
+        29,
+        31
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 0.3333333333333333,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q012",
+      "question": "What is a mortgage rate lock, and what are its potential disadvantages?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        38,
+        39
+      ],
+      "retrieved_chunk_ids": [
+        38,
+        39,
+        27,
+        21,
+        10
+      ],
+      "found_relevant_ids": [
+        38,
+        39
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q013",
+      "question": "What does expressing intent to proceed mean, and when can a lender charge application fees?",
+      "document_id": 2,
+      "category": "definition",
+      "relevant_chunk_ids": [
+        36,
+        37
+      ],
+      "retrieved_chunk_ids": [
+        37,
+        36,
+        70,
+        61,
+        71
+      ],
+      "found_relevant_ids": [
+        37,
+        36
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q014",
+      "question": "What is the difference between lender's title insurance and owner's title insurance?",
+      "document_id": 2,
+      "category": "comparison",
+      "relevant_chunk_ids": [
+        47,
+        48
+      ],
+      "retrieved_chunk_ids": [
+        48,
+        49,
+        9,
+        47,
+        64
+      ],
+      "found_relevant_ids": [
+        48,
+        47
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q015",
+      "question": "What is the difference between a home inspector and a home appraiser?",
+      "document_id": 2,
+      "category": "comparison",
+      "relevant_chunk_ids": [
+        49,
+        51
+      ],
+      "retrieved_chunk_ids": [
+        51,
+        49,
+        14,
+        47,
+        77
+      ],
+      "found_relevant_ids": [
+        51,
+        49
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q016",
+      "question": "When should I receive my Closing Disclosure, and what information does it contain?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        54,
+        57
+      ],
+      "retrieved_chunk_ids": [
+        54,
+        57,
+        55,
+        70,
+        82
+      ],
+      "found_relevant_ids": [
+        54,
+        57
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q017",
+      "question": "In the sample Closing Disclosure, what are the closing costs and cash-to-close amount?",
+      "document_id": 2,
+      "category": "numerical",
+      "relevant_chunk_ids": [
+        59,
+        62,
+        67,
+        69
+      ],
+      "retrieved_chunk_ids": [
+        69,
+        54,
+        57,
+        55,
+        58
+      ],
+      "found_relevant_ids": [
+        69
+      ],
+      "missing_relevant_ids": [
+        59,
+        62,
+        67
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 0.25,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q018",
+      "question": "What is an escrow account, and which property expenses does it cover?",
+      "document_id": 2,
+      "category": "multi_passage",
+      "relevant_chunk_ids": [
+        64,
+        73,
+        74,
+        75
+      ],
+      "retrieved_chunk_ids": [
+        74,
+        75,
+        64,
+        65,
+        76
+      ],
+      "found_relevant_ids": [
+        74,
+        75,
+        64
+      ],
+      "missing_relevant_ids": [
+        73
+      ],
+      "precision_at_5": 0.6,
+      "recall_at_5": 0.75,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q019",
+      "question": "What should I do if I fall behind on mortgage payments?",
+      "document_id": 2,
+      "category": "semantic",
+      "relevant_chunk_ids": [
+        83,
+        84
+      ],
+      "retrieved_chunk_ids": [
+        83,
+        23,
+        41,
+        76,
+        17
+      ],
+      "found_relevant_ids": [
+        83
+      ],
+      "missing_relevant_ids": [
+        84
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "question_id": "Q020",
+      "question": "What is a HELOC, and what risks should I consider before using one to pay credit card debt?",
+      "document_id": 2,
+      "category": "definition",
+      "relevant_chunk_ids": [
+        86
+      ],
+      "retrieved_chunk_ids": [
+        86,
+        22,
+        83,
+        21,
+        78
+      ],
+      "found_relevant_ids": [
+        86
+      ],
+      "missing_relevant_ids": [],
+      "precision_at_5": 0.2,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    }
+  ]
+}

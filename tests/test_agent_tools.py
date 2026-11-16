@@ -7,5 +7,7 @@ def test_search_documents_tool():
         "top_k": 3,
     })
 
-    assert "mortgage points" in result
-    assert "top_k=3" in result
+    assert "Points are a percentage of a loan" in result
+    assert "Document ID:" in result
+    assert "Page:" in result
+    assert result.count("Document ID:") == 3
